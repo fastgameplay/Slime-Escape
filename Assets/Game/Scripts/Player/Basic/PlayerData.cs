@@ -1,4 +1,4 @@
-namespace PlayerLogic.Basic
+namespace SlimeEscape.PlayerLogic.Basic
 {
     using UnityEngine;
     [CreateAssetMenu(fileName = "Player Data", menuName = "Data/Player")]

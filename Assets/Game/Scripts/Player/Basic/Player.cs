@@ -1,5 +1,5 @@
 
-namespace PlayerLogic.Basic
+namespace SlimeEscape.PlayerLogic.Basic
 {
     using UnityEngine;
     public class Player : MonoBehaviour
@@ -7,5 +7,7 @@ namespace PlayerLogic.Basic
         
         [field: SerializeField] public PlayerData Data { get; private set;}
         public PlayerEvents Events = new PlayerEvents();
+
+
     }
 }

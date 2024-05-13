@@ -1,6 +1,6 @@
 namespace ScriptableEvents.Base{
     using UnityEngine;
     
-    [CreateAssetMenu(fileName = "Void Event", menuName = "Events/CSharp/Void")]
+    [CreateAssetMenu(fileName = "Bool Event", menuName = "Events/CSharp/Bool")]
     public class SO_BoolEvent : SO_BaseEvent<bool> {}
 }
