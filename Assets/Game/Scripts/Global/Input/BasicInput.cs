@@ -8,10 +8,10 @@ namespace SlimeEscape.Input
     {
         [Header("Settings")]
         [SerializeField] private float _deltaThreshold;
-        // [SerializeField] private float _deltaRange;
+        [SerializeField] private float _deltaMultiplayer;
         [Header("Events")]
-        [SerializeField] private SO_BaseEvent<Vector2> _onPointerDeltaChange; 
-        [SerializeField] private SO_BaseEvent<Vector2> _onPointerRelease; 
+        [SerializeField] private SO_BaseEvent<MappedMovement> _onMovementChange; 
+        [SerializeField] private SO_BaseEvent<MappedMovement> _onMovementRelease; 
         [SerializeField] private SO_BaseEvent<bool> _onPointerDown; 
 
         [Space(10)]
@@ -27,25 +27,29 @@ namespace SlimeEscape.Input
             _currentPosition = context.ReadValue<Vector2>();
             if(!_holdStatus) return;
 
-            // _onPointerDeltaChange.Invoke(_currentPosition - _initialPosition);
-            // Debug.Log($"PointerDelta Performed: {_currentPosition - _initialPosition}");
+            _onMovementChange.Invoke(
+                MappedMovement.GetMappedMovement(_currentPosition - _initialPosition, _deltaThreshold, _deltaMultiplayer)
+            );
         }
         
        
         private void PointerDownPerformed(InputAction.CallbackContext context){
             _initialPosition = _currentPosition;
             _holdStatus = true;
+
             _onPointerDown.Invoke(true);
-            Debug.Log($"PointerDown Performed");
         }
         
         private void PointerDownCanceled(InputAction.CallbackContext context){
-            _onPointerRelease.Invoke(_currentPosition - _initialPosition);
             _holdStatus = false;
+            
             _onPointerDown.Invoke(false);
-            Debug.Log($"PointerDown Canceled");
-
+            _onMovementRelease.Invoke(
+                MappedMovement.GetMappedMovement(_currentPosition - _initialPosition, _deltaThreshold, _deltaMultiplayer)
+            );
         }
+
+
         private void OnEnable(){
             _pointerDownActionMap.action.Enable();
             _pointerDownActionMap.action.performed += PointerDownPerformed;
@@ -53,8 +57,6 @@ namespace SlimeEscape.Input
 
             _pointerDeltaActionMap.action.Enable();
             _pointerDeltaActionMap.action.performed += PointerMovementPerformed;
-
-            
         }
 
         private void OnDisable(){

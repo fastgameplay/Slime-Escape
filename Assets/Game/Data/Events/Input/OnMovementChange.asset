@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a423d51d4653c224f90cffaef3693978, type: 3}
-  m_Name: OnPointerDeltaChange
+  m_Script: {fileID: 11500000, guid: 680748b19cb614a459b0ab40760ca227, type: 3}
+  m_Name: OnMovementChange
   m_EditorClassIdentifier: 

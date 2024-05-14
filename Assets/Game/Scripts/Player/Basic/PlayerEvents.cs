@@ -1,14 +1,19 @@
 namespace SlimeEscape.PlayerLogic.Basic
 {
-    using System;
     using ScriptableEvents.Reference;
+    using SlimeEscape.Input;
     using UnityEngine;
+    using System;
     [Serializable]
     public struct PlayerEvents
     {
+        [Header("Player")]
+        public EventReference<bool> OnPlayerActiveStateChange;
+        
         [Header("Input")]
-        public EventReference OnPointerDown;
-        public EventReference<Vector2> OnPointerDeltaChange;
+        public EventReference<bool> OnPointerStateChange;
+        public EventReference<MappedMovement> OnMovementChange;
+        public EventReference<MappedMovement> OnMovementRelease;
         
     }
 }

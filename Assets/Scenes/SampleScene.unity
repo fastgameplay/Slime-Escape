@@ -468,12 +468,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 810473708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524474928
 GameObject:
@@ -503,7 +503,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1217608431}
   m_Father: {fileID: 810473708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &527905788
@@ -763,6 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 810473708}
   - component: {fileID: 810473709}
+  - component: {fileID: 810473710}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -783,6 +785,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 519420032}
   - {fileID: 660793180}
   - {fileID: 524474929}
   m_Father: {fileID: 0}
@@ -799,14 +802,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303abce87f149a04fa3205424f5debe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Data>k__BackingField: {fileID: 0}
+  <Data>k__BackingField: {fileID: 11400000, guid: debd17a9a42093449b9c6b04b5e22282, type: 2}
+  <Rigidbody>k__BackingField: {fileID: 810473710}
   Events:
-    OnPointerDown:
+    OnPlayerActiveStateChange:
       _type: 0
       _externalEvent: {fileID: 0}
-    OnPointerDeltaChange:
-      _type: 0
-      _externalEvent: {fileID: 0}
+    OnPointerStateChange:
+      _type: 1
+      _externalEvent: {fileID: 11400000, guid: d448ce71937393b429165ef60c7cdbeb, type: 2}
+    OnMovementChange:
+      _type: 1
+      _externalEvent: {fileID: 11400000, guid: be2601a056dc311448d6953657e160f5, type: 2}
+    OnMovementRelease:
+      _type: 1
+      _externalEvent: {fileID: 11400000, guid: b96a88586961c96458a5d89289c3d1b7, type: 2}
+--- !u!50 &810473710
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810473707}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1103502107
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +974,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1217608430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217608431}
+  - component: {fileID: 1217608432}
+  m_Layer: 0
+  m_Name: Movement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217608431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217608430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 524474929}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1217608432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217608430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e80ee061ec993940a1798b62e432c66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1222603370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,10 +1363,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b38881999b5744893ab39c9290c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deltaThreshold: 20
-  _onPointerDeltaChange: {fileID: 11400000, guid: 9b520a01e8c1d5b4bbd15c1f88739daa, type: 2}
-  _onPointerRelease: {fileID: 11400000, guid: 80915ea4a9dc8de4195f5cfbd0984e1f, type: 2}
-  _onPointerDown: {fileID: 11400000, guid: 2a5e9a1c1cb15e3499a17697a5aa3ba8, type: 2}
+  _deltaThreshold: 1
+  _deltaMultiplayer: 0.0025
+  _onMovementChange: {fileID: 11400000, guid: be2601a056dc311448d6953657e160f5, type: 2}
+  _onMovementRelease: {fileID: 11400000, guid: b96a88586961c96458a5d89289c3d1b7, type: 2}
+  _onPointerDown: {fileID: 11400000, guid: d448ce71937393b429165ef60c7cdbeb, type: 2}
   _pointerDeltaActionMap: {fileID: 2356331192283470467, guid: ce7aed04c4a78a5418030b10615017b8, type: 3}
   _pointerDownActionMap: {fileID: -8908638622544112704, guid: ce7aed04c4a78a5418030b10615017b8, type: 3}
 --- !u!1 &1383677796
@@ -1879,7 +1961,6 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
   - {fileID: 1287811249}
   - {fileID: 810473708}
   - {fileID: 1382366402}

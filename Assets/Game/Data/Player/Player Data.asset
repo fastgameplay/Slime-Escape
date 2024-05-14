@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a423d51d4653c224f90cffaef3693978, type: 3}
-  m_Name: OnPointerRelease
+  m_Script: {fileID: 11500000, guid: 1d255e6eafd4c6b45b494116850cd6a1, type: 3}
+  m_Name: Player Data
   m_EditorClassIdentifier: 
+  <TimeStopSmoothness>k__BackingField: 1
+  <MovementForceMultiplyer>k__BackingField: 800
+  <MaxHealth>k__BackingField: 100

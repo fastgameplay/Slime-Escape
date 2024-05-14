@@ -6,7 +6,7 @@ namespace SlimeEscape.PlayerLogic.Basic
     {
         [field: Header("Movement")]
         [field: SerializeField] public float TimeStopSmoothness {get; private set;} = 1f;
-        [field: SerializeField] public float ImpulsMultiplyer {get; private set;} = 1f;
+        [field: SerializeField] public float MovementForceMultiplyer {get; private set;} = 1f;
         
         [field: Space(10)]
         [field: Header("Health")]
