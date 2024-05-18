@@ -1,4 +1,4 @@
-namespace PlayerLogic.Basic
+namespace SlimeEscape.PlayerLogic.Basic
 {
     using UnityEngine;
 
@@ -9,7 +9,6 @@ namespace PlayerLogic.Basic
         protected PlayerEvents Events 
         {
             get => Player.Events;
-            set => Player.Events = value;
         }
         protected virtual void Awake(){
             Player = transform.root.GetComponent<Player>();

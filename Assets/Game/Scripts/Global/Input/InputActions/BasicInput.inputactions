@@ -1,0 +1,54 @@
+{
+    "name": "BasicInput",
+    "maps": [
+        {
+            "name": "Basic",
+            "id": "803d310c-a8b6-4068-8f93-9e83632f2854",
+            "actions": [
+                {
+                    "name": "OnPointerPositionChange",
+                    "type": "Value",
+                    "id": "c02a02ff-5e66-43f7-ac1c-9a083dd77b59",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "OnTap",
+                    "type": "Button",
+                    "id": "393fbb47-9eb4-4fd5-8404-6364baf53065",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c1f675aa-f523-48fd-bd62-49566e654e88",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnPointerPositionChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3d42878-b60f-47b9-84f2-9b92b19c539c",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnTap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
