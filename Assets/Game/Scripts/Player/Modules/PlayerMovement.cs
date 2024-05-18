@@ -6,8 +6,7 @@ namespace SlimeEscape.PlayerLogic.Module
 
     public class PlayerMovement : PlayerBase
     {
-        private void OnMovementDeltaRelease(MappedMovement movement) 
-        {
+        private void OnMovementDeltaRelease(MappedMovement movement) {
             // if(!Player.IsActive) return;
             Player.Rigidbody.velocity = Vector3.zero;
             Player.Rigidbody.AddForce(movement.Magnitude * Data.MovementForceMultiplyer * movement.Delta);
