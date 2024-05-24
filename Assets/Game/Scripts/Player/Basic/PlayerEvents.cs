@@ -8,8 +8,8 @@ namespace SlimeEscape.PlayerLogic.Basic
     public struct PlayerEvents
     {
         [Header("Player")]
-        public EventReference<bool> OnPlayerActiveStateChange;
-        
+        public EventReference<bool> OnActiveStateChange;
+
         [Header("Input")]
         public EventReference<bool> OnPointerStateChange;
         public EventReference<MappedMovement> OnMovementChange;

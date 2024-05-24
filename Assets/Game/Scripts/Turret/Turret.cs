@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Turret : MonoBehaviour
+namespace SlimeEscape.TurretLogic.Basic
 {
-    // Start is called before the first frame update
-    void Start()
+    using UnityEngine;
+    public class Turret : MonoBehaviour
     {
-        
-    }
+        [field: SerializeField] public TurretData Data { get; private set;}
+    
+        public TurretEvents Events = new TurretEvents();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

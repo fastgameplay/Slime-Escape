@@ -7,19 +7,21 @@ namespace SlimeEscape.PlayerLogic.Module
     public class PlayerMovement : PlayerBase
     {
         private void OnMovementDeltaRelease(MappedMovement movement) {
-            // if(!Player.IsActive) return;
+            if(!IsActive) return;
             Player.Rigidbody.velocity = Vector3.zero;
             Player.Rigidbody.AddForce(movement.Magnitude * Data.MovementForceMultiplyer * movement.Delta);
             Debug.Log($"OnPointerDeltaChange: {movement.Delta}, {movement.Magnitude}");
 
         }
 
-        private void OnEnable() 
+        protected override void OnEnable() 
         {
+            base.OnEnable();
             Player.Events.OnMovementRelease += OnMovementDeltaRelease;
         }
-        private void OnDisable() 
+        protected override void OnDisable() 
         {
+            base.OnEnable();
             Player.Events.OnMovementRelease -= OnMovementDeltaRelease;
         }
     }

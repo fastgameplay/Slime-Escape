@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TurretEvents : MonoBehaviour
+namespace SlimeEscape.TurretLogic.Basic
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using ScriptableEvents.Reference;
+    using System;
+    using UnityEngine;
 
-    // Update is called once per frame
-    void Update()
+    [Serializable]
+    public struct TurretEvents
     {
-        
+        [Header("Turret")]
+        public EventReference<bool> OnActiveStateChange;
+            
     }
 }

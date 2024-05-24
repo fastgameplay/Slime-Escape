@@ -8,7 +8,6 @@ namespace SlimeEscape.PlayerLogic.Basic
         
         [field: SerializeField] public PlayerData Data { get; private set;}
         [field: SerializeField] public Rigidbody2D Rigidbody { get; private set;}
-        public bool IsActive { get; private set; }
     
         public PlayerEvents Events = new PlayerEvents();
         
@@ -18,11 +17,5 @@ namespace SlimeEscape.PlayerLogic.Basic
                 Rigidbody = GetComponent<Rigidbody2D>();
             }
         }
-
-        public void ChangeActiveState(bool value)
-        {
-            IsActive = value;
-        }
-    
     }
 }

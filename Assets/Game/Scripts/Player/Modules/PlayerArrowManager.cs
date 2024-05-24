@@ -7,15 +7,15 @@ namespace SlimeEscape.PlayerLogic.Module
     public class PlayerArrowManager : PlayerBase
     {
         [SerializeField] private GameObject _arrowSprite;
-        private bool _isActive;
+        private bool _arrowActiveState;
         protected override void Awake() {
             base.Awake();
             ChangeArrowActiveState(false);
         }
         private void OnArrowPositionChange(MappedMovement movement)
         {
-            // if(!Player.IsActive) return; dry may cry ;()
-            if(!_isActive) return;
+            if(!IsActive) return; //dry may cry ;()
+            if(!_arrowActiveState) return;
 
             // Update arrow position
             _arrowSprite.transform.localPosition = movement.Delta * movement.Magnitude;
@@ -29,24 +29,25 @@ namespace SlimeEscape.PlayerLogic.Module
         }
         private void ChangeArrowActiveState(bool state)
         {
-            //TODO: Better to incorporate this inside PlayerEvents Logic
-            // if(!Player.IsActive) return;
+            if(!IsActive) return;
             if(!state)
             {
                 _arrowSprite.transform.localPosition = Vector3.zero;
                 _arrowSprite.transform.localScale = new Vector3(0,1,1);
             }
             _arrowSprite.SetActive(state);
-            _isActive = state;
+            _arrowActiveState = state;
         }
 
-        private void OnEnable() 
+        protected override void OnEnable() 
         {
+            base.OnEnable();
             Player.Events.OnMovementChange += OnArrowPositionChange;
             Player.Events.OnPointerStateChange += ChangeArrowActiveState;
         }
-        private void OnDisable() 
+        protected override void OnDisable() 
         {
+            base.OnDisable();
             Player.Events.OnMovementChange -= OnArrowPositionChange;
             Player.Events.OnPointerStateChange -= ChangeArrowActiveState;
         }

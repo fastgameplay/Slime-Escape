@@ -6,10 +6,11 @@ namespace SlimeEscape.TimeStop
     public class TimeStopManager : MonoBehaviour
     {
         [SerializeField] SO_BaseEvent<bool> _onTimeFlowStateChange;
+        [SerializeField] SO_BaseEvent<bool> _onActiveStateChange;
         [SerializeField] float _timeStateChangeDuration;
-        private LTDescr _timeChangeTween;
 
         private Coroutine _timeChangeCoroutine;
+        private bool _isActive;
 
         private IEnumerator OnTimeStateChange(bool state)
         {
@@ -30,16 +31,26 @@ namespace SlimeEscape.TimeStop
         }
         private void OnTimeChange(bool state)
         {
+            if(!_isActive) return;
             if (_timeChangeCoroutine != null)
             {
                 StopCoroutine(_timeChangeCoroutine);
             }
             _timeChangeCoroutine = StartCoroutine(OnTimeStateChange(state));
         }
+        private void ActiveStateChange(bool state)
+        {
+            _isActive = state;
+            if(state) return;
+            if (_timeChangeCoroutine == null) return;
+            StopCoroutine(_timeChangeCoroutine);
+        }
         private void OnEnable() {
+            _onActiveStateChange += ActiveStateChange;
             _onTimeFlowStateChange += OnTimeChange;
         }
         private void OnDisable() {
+            _onActiveStateChange -= ActiveStateChange;
             _onTimeFlowStateChange -= OnTimeChange;
         }
     }

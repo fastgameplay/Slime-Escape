@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TurretBase : MonoBehaviour
+namespace SlimeEscape.TurretLogic.Basic
 {
-    // Start is called before the first frame update
-    void Start()
+    using UnityEngine;
+    public class TurretBase : MonoBehaviour
     {
-        
-    }
+        protected Turret Turret { get; private set; }
+        protected TurretData Data => Turret.Data;
+        protected TurretEvents Events 
+        {
+            get => Turret.Events;
+        }
+        public bool IsActive { get; private set; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected virtual void Awake(){
+            Turret = transform.root.GetComponent<Turret>();
+            if(Turret == null){
+                Debug.LogWarning("Turret reference is empty!");
+            }
+        }
+
+        private void ChangeActiveState(bool value)
+        {
+            IsActive = value;
+        }
+
+        protected virtual void OnEnable()
+        {
+            Turret.Events.OnActiveStateChange += ChangeActiveState;
+        }
+        protected virtual void OnDisable()
+        {
+            Turret.Events.OnActiveStateChange -= ChangeActiveState;
+        }
     }
 }
