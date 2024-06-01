@@ -6,7 +6,7 @@ namespace SlimeEscape.PlayerLogic.Basic
     public class Player : MonoBehaviour
     {
         
-        [field: SerializeField] public PlayerData Data { get; private set;}
+        [field: SerializeField] public SO_PlayerData Data { get; private set;}
         [field: SerializeField] public Rigidbody2D Rigidbody { get; private set;}
     
         public PlayerEvents Events = new PlayerEvents();

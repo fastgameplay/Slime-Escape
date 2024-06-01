@@ -5,7 +5,7 @@ namespace SlimeEscape.BulletLogic.Basic
     public class BulletBase : MonoBehaviour
     {
         protected Bullet Bullet { get; private set; }
-        protected BulletData Data => Bullet.Data;
+        protected SO_BulletData Data => Bullet.Data;
         protected BulletEvents Events 
         {
             get => Bullet.Events;

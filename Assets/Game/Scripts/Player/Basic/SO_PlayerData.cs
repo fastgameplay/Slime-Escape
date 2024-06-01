@@ -2,7 +2,7 @@ namespace SlimeEscape.PlayerLogic.Basic
 {
     using UnityEngine;
     [CreateAssetMenu(fileName = "Player Data", menuName = "Data/Player")]
-    public class PlayerData : ScriptableObject
+    public class SO_PlayerData : ScriptableObject
     {
         [field: Header("Movement")]
         [field: SerializeField] public float TimeStopSmoothness {get; private set;} = 1f;

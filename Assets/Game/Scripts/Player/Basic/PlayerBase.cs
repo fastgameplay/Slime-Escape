@@ -5,7 +5,7 @@ namespace SlimeEscape.PlayerLogic.Basic
     public class PlayerBase : MonoBehaviour
     {
         protected Player Player { get; private set; }
-        protected PlayerData Data => Player.Data;
+        protected SO_PlayerData Data => Player.Data;
         protected PlayerEvents Events 
         {
             get => Player.Events;
