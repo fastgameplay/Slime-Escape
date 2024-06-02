@@ -9,6 +9,7 @@ namespace SlimeEscape.TurretLogic.Basic
     {
         [Header("Turret")]
         public EventReference<bool> OnActiveStateChange;
+        public EventReference<Transform> OnTargetChange;
             
     }
 }
